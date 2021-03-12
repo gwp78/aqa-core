@@ -6,6 +6,7 @@ import io.restassured.builder.RequestSpecBuilder;
 import lombok.Getter;
 import ru.gwp.api.rest.RestRequest;
 import ru.gwp.api.rest.RestResponse;
+import ru.gwp.constants.ContentType;
 import ru.gwp.constants.DebugMode;
 import ru.gwp.constants.RequestMethod;
 
@@ -44,8 +45,8 @@ public final class RestAssuredRequest implements RestRequest {
    * @return REST request.
    */
   @Override
-  public final RestRequest setContentType(String contentType) {
-    builder.setContentType(checkNotNull(contentType));
+  public final RestRequest setContentType(ContentType contentType) {
+    builder.setContentType(checkNotNull(contentType).getName());
     return this;
   }
 
@@ -83,18 +84,6 @@ public final class RestAssuredRequest implements RestRequest {
   @Override
   public final RestRequest setBaseUri(String uri) {
     builder.setBaseUri(checkNotNull(uri));
-    return this;
-  }
-
-  /**
-   * Sets base PATH for {@link RestAssuredRequest#builder}.
-   *
-   * @param path base PATH as {@link String}.
-   * @return REST request.
-   */
-  @Override
-  public final RestRequest setBasePath(String path) {
-    builder.setBasePath(checkNotNull(path));
     return this;
   }
 
