@@ -11,7 +11,7 @@ import static io.restassured.RestAssured.filters;
 /** Provides BeforeAll callback for JUnit5. Connects RestAssured with Allure Reporter. */
 public final class AllureRestAssuredBeforeAll implements BeforeAllCallback {
 
-  private static final AtomicBoolean IS_FILTER_ADDED = new AtomicBoolean(false);
+  private static final AtomicBoolean IS_FILTER_NOT_ADDED = new AtomicBoolean(true);
 
   /**
    * Adds {@link AllureRestAssured} filter for JUnit5.
@@ -20,7 +20,7 @@ public final class AllureRestAssuredBeforeAll implements BeforeAllCallback {
    */
   @Override
   public void beforeAll(ExtensionContext context) {
-    if (IS_FILTER_ADDED.compareAndSet(/* expectedValue= */ false, /* newValue= */ true)) {
+    if (IS_FILTER_NOT_ADDED.compareAndSet(/* expectedValue= */ true, /* newValue= */ false)) {
       filters(new AllureRestAssured());
     }
   }
