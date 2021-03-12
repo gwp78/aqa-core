@@ -12,6 +12,7 @@ import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static ru.gwp.constants.DebugMode.DEBUG;
 
+/** Provides implementation of functionality to work with REST response. */
 public final class RestAssuredResponse implements RestResponse {
 
   private final ValidatableResponse vResponse;
@@ -20,24 +21,51 @@ public final class RestAssuredResponse implements RestResponse {
     vResponse = init((RestAssuredRequest) request);
   }
 
+  /**
+   * Validates REST response status code of {@link RestAssuredResponse#vResponse}.
+   *
+   * @param statusCode expected status code
+   * @return REST response. Look {@link RestAssuredResponse}.
+   */
   @Override
   public final RestResponse expectStatusCode(int statusCode) {
     vResponse.assertThat().statusCode(statusCode);
     return this;
   }
 
+  /**
+   * Validates that REST response body of {@link RestAssuredResponse#vResponse} matches to JSON
+   * schema.
+   *
+   * @param path path to JSON schema.
+   * @return REST response. Look {@link RestAssuredResponse}.
+   */
   @Override
   public final RestResponse expectMatchesJsonSchema(String path) {
     vResponse.assertThat().body(matchesJsonSchemaInClasspath(path));
     return this;
   }
 
+  /**
+   * Validates that REST response body of {@link RestAssuredResponse#vResponse} value with specific
+   * path matches to provided {@link Matcher}.
+   *
+   * @param path body JSON path.
+   * @return REST response. Look {@link RestAssuredResponse}.
+   */
   @Override
   public RestResponse expectPathValueMatchesTo(String path, Matcher<?> matcher) {
     vResponse.assertThat().body(path, matcher);
     return this;
   }
 
+  /**
+   * Deserializes REST response body of {@link RestAssuredResponse#vResponse} to instance of
+   * provided class.
+   *
+   * @param cls class for deserialization.
+   * @return new instance of provided class.
+   */
   @Override
   public final <T> T extractAs(Class<T> cls) {
     return vResponse.extract().as(cls);

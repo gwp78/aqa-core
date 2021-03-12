@@ -8,18 +8,18 @@ public interface RestResponse {
   /**
    * Validates REST response status code.
    *
-   * @param statusCode expected status code
-   * @return REST response
+   * @param statusCode expected status code.
+   * @return REST response.
    */
   RestResponse expectStatusCode(int statusCode);
 
   /**
-   * Validates that REST response matches to JSON schema.
+   * Validates that REST response body matches to JSON schema.
    *
-   * @param jsonSchemaPath path to JSON schema.
-   * @return REST response
+   * @param path path to JSON schema.
+   * @return REST response.
    */
-  RestResponse expectMatchesJsonSchema(String jsonSchemaPath);
+  RestResponse expectMatchesJsonSchema(String path);
 
   /**
    * Validates that REST response body value with specific path matches to provided {@link Matcher}.
@@ -33,7 +33,7 @@ public interface RestResponse {
    * Deserializes REST response body to instance of provided class.
    *
    * @param cls class for deserialization.
-   * @return new instance of provided class
+   * @return new instance of provided class.
    */
   <T> T extractAs(Class<T> cls);
 }
