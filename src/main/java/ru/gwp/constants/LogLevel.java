@@ -7,15 +7,15 @@ import static java.lang.String.format;
 import static java.util.Arrays.stream;
 
 /** Stores available debug modes. */
-public enum DebugMode {
+public enum LogLevel {
   /** DEBUG mode shows detail logs. */
   DEBUG("debug"),
   /** PROD mode hides detail logs. */
-  PROD("prod");
+  NONE("none");
 
   @Getter private final String name;
 
-  DebugMode(String name) {
+  LogLevel(String name) {
     this.name = name;
   }
 
@@ -25,8 +25,8 @@ public enum DebugMode {
    * @param mode mode as {@link String}.
    * @return debug mode.
    */
-  public static DebugMode fromString(String mode) {
-    return stream(DebugMode.values())
+  public static LogLevel fromString(String mode) {
+    return stream(LogLevel.values())
         .filter(_mode -> _mode.name.equals(mode))
         .findFirst()
         .orElseThrow(() -> new AutoTestError(format("There is no debug mode '%s'", mode)));
