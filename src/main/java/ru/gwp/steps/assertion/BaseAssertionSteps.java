@@ -1,4 +1,4 @@
-package ru.gwp.steps;
+package ru.gwp.steps.assertion;
 
 import io.qameta.allure.Step;
 
