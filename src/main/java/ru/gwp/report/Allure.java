@@ -1,6 +1,5 @@
 package ru.gwp.report;
 
-import static io.qameta.allure.Allure.tms;
 import static io.qameta.allure.util.ResultsUtils.createTmsLink;
 
 /** Utility class to extend Allure reports. */
@@ -15,8 +14,8 @@ public final class Allure {
    *
    * @param testCaseId test case id in TestRail.
    */
-  public static void link(String testCaseId) {
-    link(TEST_CASE, createTmsLink(testCaseId).getUrl());
+  public static void tms(String testCaseId) {
+    tms(TEST_CASE, createTmsLink(testCaseId).getUrl());
   }
 
   /**
@@ -24,7 +23,7 @@ public final class Allure {
    *
    * @param testCaseId test case id in TestRail.
    */
-  public static void link(String linkName, String testCaseId) {
-    tms(linkName, createTmsLink(testCaseId).getUrl());
+  public static void tms(String linkName, String testCaseId) {
+    io.qameta.allure.Allure.tms(linkName, createTmsLink(testCaseId).getUrl());
   }
 }
