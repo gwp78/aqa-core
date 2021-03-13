@@ -7,12 +7,12 @@ import lombok.Getter;
 import ru.gwp.api.rest.RestRequest;
 import ru.gwp.api.rest.RestResponse;
 import ru.gwp.constants.ContentType;
-import ru.gwp.constants.DebugMode;
+import ru.gwp.constants.LogLevel;
 import ru.gwp.constants.RequestMethod;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static lombok.AccessLevel.PACKAGE;
-import static ru.gwp.constants.DebugMode.fromString;
+import static ru.gwp.constants.LogLevel.fromString;
 
 /**
  * Provides implementation of functionality to work with REST request. Wraps RestAssured methods
@@ -21,7 +21,7 @@ import static ru.gwp.constants.DebugMode.fromString;
 public final class RestAssuredRequest implements RestRequest {
 
   @Getter(PACKAGE)
-  private final DebugMode debugMode;
+  private final LogLevel logLevel;
 
   @Getter(PACKAGE)
   private final RequestSpecBuilder builder;
@@ -33,8 +33,8 @@ public final class RestAssuredRequest implements RestRequest {
   private String path;
 
   @Inject
-  RestAssuredRequest(@Named("debugMode") String debugMode) {
-    this.debugMode = fromString(checkNotNull(debugMode).toLowerCase());
+  RestAssuredRequest(@Named("logLevel") String logLevel) {
+    this.logLevel = fromString(checkNotNull(logLevel).toLowerCase());
     this.builder = new RequestSpecBuilder();
   }
 

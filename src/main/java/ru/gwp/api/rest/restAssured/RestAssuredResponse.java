@@ -10,7 +10,7 @@ import ru.gwp.api.rest.RestResponse;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
-import static ru.gwp.constants.DebugMode.DEBUG;
+import static ru.gwp.constants.LogLevel.DEBUG;
 
 /** Provides implementation of functionality to work with REST response. */
 public final class RestAssuredResponse implements RestResponse {
@@ -74,7 +74,7 @@ public final class RestAssuredResponse implements RestResponse {
   private static ValidatableResponse init(RestAssuredRequest request) {
     RequestSpecification specification = request.getBuilder().build();
 
-    if (DEBUG.equals(request.getDebugMode())) {
+    if (DEBUG.equals(request.getLogLevel())) {
       specification = specification.log().all();
     }
 
@@ -95,7 +95,7 @@ public final class RestAssuredResponse implements RestResponse {
     }
 
     ValidatableResponse vResponse = checkNotNull(response).then();
-    if (DEBUG.equals(request.getDebugMode())) {
+    if (DEBUG.equals(request.getLogLevel())) {
       vResponse = vResponse.log().all();
     }
 
