@@ -16,7 +16,7 @@ public final class AllureRestAssuredBeforeAll implements BeforeAllCallback {
   /**
    * Adds {@link AllureRestAssured} filter for JUnit5.
    *
-   * @param context {@link ExtensionContext}
+   * @param context {@link ExtensionContext}.
    */
   @Override
   public void beforeAll(ExtensionContext context) {
