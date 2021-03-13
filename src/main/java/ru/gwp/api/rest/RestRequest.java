@@ -40,6 +40,14 @@ public interface RestRequest {
   RestRequest setBaseUri(String uri);
 
   /**
+   * Sets base PATH for REST request.
+   *
+   * @param path base PATH as {@link String}.
+   * @return REST request.
+   */
+  RestRequest setBasePath(String path);
+
+  /**
    * Adds query param for REST request.
    *
    * @param parameterName parameter name as {@link String}.

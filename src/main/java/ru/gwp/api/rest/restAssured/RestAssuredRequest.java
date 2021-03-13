@@ -12,7 +12,7 @@ import ru.gwp.constants.RequestMethod;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static lombok.AccessLevel.PACKAGE;
-import static ru.gwp.constants.DebugMode.valueOf;
+import static ru.gwp.constants.DebugMode.fromString;
 
 /**
  * Provides implementation of functionality to work with REST request. Wraps RestAssured methods
@@ -34,7 +34,7 @@ public final class RestAssuredRequest implements RestRequest {
 
   @Inject
   RestAssuredRequest(@Named("debugMode") String debugMode) {
-    this.debugMode = valueOf(debugMode.toLowerCase());
+    this.debugMode = fromString(checkNotNull(debugMode).toLowerCase());
     this.builder = new RequestSpecBuilder();
   }
 
@@ -84,6 +84,18 @@ public final class RestAssuredRequest implements RestRequest {
   @Override
   public final RestRequest setBaseUri(String uri) {
     builder.setBaseUri(checkNotNull(uri));
+    return this;
+  }
+
+  /**
+   * Sets base PATH for {@link RestAssuredRequest#builder}.
+   *
+   * @param path base URI as {@link String}.
+   * @return REST request.
+   */
+  @Override
+  public final RestRequest setBasePath(String path) {
+    builder.setBasePath(checkNotNull(path));
     return this;
   }
 
