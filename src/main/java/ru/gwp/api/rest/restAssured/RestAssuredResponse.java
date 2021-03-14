@@ -17,8 +17,8 @@ public final class RestAssuredResponse implements RestResponse {
 
   private final ValidatableResponse vResponse;
 
-  RestAssuredResponse(RestRequest request) {
-    vResponse = init((RestAssuredRequest) request);
+  RestAssuredResponse(RestAssuredRequest request) {
+    vResponse = init(request);
   }
 
   /**
