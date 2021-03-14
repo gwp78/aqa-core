@@ -18,6 +18,7 @@ import static java.nio.file.Files.walk;
 import static java.nio.file.Path.of;
 import static java.util.stream.Collectors.toSet;
 
+/** Utility class to work with classes via reflection */
 @Slf4j
 public final class Reflections {
 
@@ -26,6 +27,12 @@ public final class Reflections {
 
   private Reflections() {}
 
+  /**
+   * Searches classes in provided packages.
+   *
+   * @param packageNames package names for search
+   * @return founded classes
+   */
   public static Set<Class<?>> getClasses(List<String> packageNames) {
     ClassLoader loader = currentThread().getContextClassLoader();
     return getClasses(checkNotNull(packageNames), checkNotNull(loader));
