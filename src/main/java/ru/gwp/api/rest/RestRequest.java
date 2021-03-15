@@ -1,7 +1,7 @@
 package ru.gwp.api.rest;
 
-import ru.gwp.constants.ContentType;
-import ru.gwp.constants.RequestMethod;
+import ru.gwp.api.constants.ContentType;
+import ru.gwp.api.constants.RequestMethod;
 
 /** Provides functionality to work with REST request. */
 public interface RestRequest {

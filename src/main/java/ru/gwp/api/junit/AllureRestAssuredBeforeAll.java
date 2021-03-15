@@ -1,4 +1,4 @@
-package ru.gwp.junit;
+package ru.gwp.api.junit;
 
 import io.qameta.allure.restassured.AllureRestAssured;
 import org.junit.jupiter.api.extension.BeforeAllCallback;

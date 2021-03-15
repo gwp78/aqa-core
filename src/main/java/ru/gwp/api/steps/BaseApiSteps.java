@@ -1,4 +1,4 @@
-package ru.gwp.steps.api;
+package ru.gwp.api.steps;
 
 /** Provides base steps to work with REST API. */
 public interface BaseApiSteps {
