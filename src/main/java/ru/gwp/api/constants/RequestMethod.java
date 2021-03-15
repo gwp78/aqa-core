@@ -1,4 +1,4 @@
-package ru.gwp.constants;
+package ru.gwp.api.constants;
 
 import lombok.Getter;
 

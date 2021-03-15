@@ -6,13 +6,13 @@ import io.restassured.builder.RequestSpecBuilder;
 import lombok.Getter;
 import ru.gwp.api.rest.RestRequest;
 import ru.gwp.api.rest.RestResponse;
-import ru.gwp.constants.ContentType;
-import ru.gwp.constants.LogLevel;
-import ru.gwp.constants.RequestMethod;
+import ru.gwp.api.constants.ContentType;
+import ru.gwp.api.constants.LogLevel;
+import ru.gwp.api.constants.RequestMethod;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static lombok.AccessLevel.PACKAGE;
-import static ru.gwp.constants.LogLevel.fromString;
+import static ru.gwp.api.constants.LogLevel.fromString;
 
 /**
  * Provides implementation of functionality to work with REST request. Wraps RestAssured methods

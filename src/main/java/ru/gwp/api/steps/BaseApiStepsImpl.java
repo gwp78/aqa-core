@@ -1,4 +1,4 @@
-package ru.gwp.steps.api;
+package ru.gwp.api.steps;
 
 import ru.gwp.error.AutoTestError;
 

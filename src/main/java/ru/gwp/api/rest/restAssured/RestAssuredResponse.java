@@ -4,13 +4,12 @@ import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 import org.hamcrest.Matcher;
-import ru.gwp.api.rest.RestRequest;
 import ru.gwp.api.rest.RestResponse;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
-import static ru.gwp.constants.LogLevel.DEBUG;
+import static ru.gwp.api.constants.LogLevel.DEBUG;
 
 /** Provides implementation of functionality to work with REST response. */
 public final class RestAssuredResponse implements RestResponse {
