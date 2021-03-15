@@ -1,4 +1,4 @@
-package ru.gwp.reflection;
+package ru.gwp.web.reflection;
 
 import lombok.extern.slf4j.Slf4j;
 import ru.gwp.error.AutoTestError;
